@@ -1,0 +1,11 @@
+﻿<Properties StartupConfiguration="{2F2AED00-1F09-3DE2-A592-6A346252E3D3}|">
+  <MonoDevelop.Ide.Workbench />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.rush00 PreferredExecutionTarget="Unity.Editor" />
+  <MonoDevelop.Ide.ItemProperties.rush00.Editor PreferredExecutionTarget="Unity.Editor" />
+  <MultiItemStartupConfigurations />
+</Properties>
