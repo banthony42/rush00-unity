@@ -6,28 +6,34 @@ public class EnemisScript : MonoBehaviour {
 
 	public WeaponSpawnerScript	weaponSpawner;
 	public GameObject			player;
+	public GameObject			currentAmo;
 
-	private WeaponScript		currentAmo;
-	private GameObject			currentAmoSprite;
-	private bool				hasTarget = false;
+	private WeaponScript		WeaponScript;
+	private bool				hasTarget = true;
 
-	void Start ()
+	void Start()
 	{
-		currentAmo = weaponSpawner.weapons[weaponSpawner.Index];
-		currentAmo.label = "EnnemisBullet";
-		Vector3 vecTmp = new Vector3(transform.position.x - 0.15f, transform.position.y - 0.15f, 0);
-		currentAmoSprite = Instantiate(currentAmo.attachBody, vecTmp, transform.rotation);
+		WeaponScript = weaponSpawner.weapons[weaponSpawner.Index];
+		currentAmo.GetComponent<WeaponScript>().label = "EnnemisBullet";
+		currentAmo.GetComponent<SpriteRenderer>().sprite = WeaponScript.attachBody;
+		currentAmo.GetComponent<WeaponScript>().bullet = WeaponScript.bullet;
+		currentAmo.GetComponent<WeaponScript>().shotWeapon = WeaponScript.shotWeapon;
+		currentAmo.GetComponent<WeaponScript>().weaponCharger = WeaponScript.weaponCharger;
+		currentAmo.GetComponent<WeaponScript>().label = WeaponScript.label;
+		currentAmo.GetComponent<WeaponScript>().weaponName = WeaponScript.weaponName;
 	}
 
-	void Update ()
+	void Update()
 	{
+
+		//IA de l'ennemis a faire
 		if (hasTarget)
 			Fire();
 	}
 
 	void Fire()
 	{
-		currentAmo.weaponCharger = 1;
-		currentAmo.Fire(player);
+		currentAmo.GetComponent<WeaponScript>().weaponCharger = 1;
+		currentAmo.GetComponent<WeaponScript>().Fire(player.transform.position);
 	}
 }

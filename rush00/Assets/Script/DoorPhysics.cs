@@ -8,7 +8,6 @@ public class DoorPhysics : MonoBehaviour {
 	private const float	DoorOpenAngle = 90.0f;
 	private const float	DoorCloseAngle = 0.0f;
 
-	private float	direction = 1.0f;
 	private bool	open = false;
 
 	void Update ()
@@ -39,5 +38,4 @@ public class DoorPhysics : MonoBehaviour {
         yield return new WaitForSeconds(5);
 		open = false;
     }
-
 }
