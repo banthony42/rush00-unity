@@ -8,6 +8,7 @@ public class PlayerScript : MonoBehaviour {
     public GameObject leg;
     public float moveSpeed;
     public SpriteRenderer attachWeapon;
+    public LayerMask weaponMask;
 
     private WeaponSpawnerScript pickUpWSpawner;
     private Animator legAnimator;
@@ -40,9 +41,9 @@ public class PlayerScript : MonoBehaviour {
 
     void dropWeapon()
     {
-        Vector3 direction = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
-        direction.Normalize();
-        pickUpWSpawner.drop(player.transform.position, direction);
+        Vector2 dirDrop = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+        dirDrop.Normalize();
+        pickUpWSpawner.drop(player.transform.position, dirDrop);
         attachWeapon.sprite = null;
     }
 
@@ -50,7 +51,7 @@ public class PlayerScript : MonoBehaviour {
     {
         RaycastHit2D hit;
         Vector2 point = player.transform.position;
-        hit = Physics2D.Raycast(point, Vector2.up, 0);
+        hit = Physics2D.Raycast(point, Vector2.up, 0, weaponMask);
         if (hit && hit.collider && hit.collider.gameObject.tag == "weaponSpawner")
         {
             pickUpWSpawner = hit.collider.gameObject.GetComponent<WeaponSpawnerScript>();
