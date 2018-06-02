@@ -4,20 +4,33 @@ using UnityEngine;
 
 public class WeaponScript : MonoBehaviour {
 
-    public Sprite attachBody;
-    public Sprite weaponAmo;
+	public Sprite		attachBody;
+	public GameObject	bullet;
 
-    public string weaponName;
-    public bool shotWeapon;
-    public int weaponCharger;
+    public bool		shotWeapon;
+    public int		weaponCharger;
+	public string	label;
+	public string	weaponName;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+	public void Fire(Vector2 direction)
+	{
+		if (weaponCharger != 0)
+		{
+			float		delta;
+			float		deltaX;
+			float		deltaY;
+			GameObject	newBullet;
+
+			deltaX = (direction.x - transform.position.x);
+			deltaY = (direction.y - transform.position.y);
+			delta = Mathf.Sqrt((deltaX * deltaX) + (deltaY * deltaY));
+			Vector3 vectorDirector = new Vector3(deltaX / delta, deltaY / delta, 0.0f);
+			Vector3 vecTmp = new Vector3(transform.position.x + (vectorDirector.x), transform.position.y + (vectorDirector.y), 0);
+			newBullet = Instantiate(bullet, vecTmp, transform.rotation);
+			newBullet.GetComponent<Bullet>().vectorDirector = vectorDirector;
+			newBullet.GetComponent<Bullet>().label = label;
+		}
+		if (shotWeapon)
+			weaponCharger -= 1;
 	}
 }

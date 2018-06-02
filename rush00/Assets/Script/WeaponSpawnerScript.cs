@@ -28,7 +28,7 @@ public class WeaponSpawnerScript : MonoBehaviour {
 
     private Sprite weaponSprite;
     private SpriteRenderer mySpriteRenderer;
-	
+
     // Use this for initialization
 	void Start () {
         direction = Vector2.zero;
@@ -38,7 +38,7 @@ public class WeaponSpawnerScript : MonoBehaviour {
         mySpriteRenderer = GetComponent<SpriteRenderer>();
         mySpriteRenderer.sprite = weaponSprite;
 	}
-	
+
     public void drop(Vector2 position, Vector2 _direction)
     {
         weaponDropped = true;
