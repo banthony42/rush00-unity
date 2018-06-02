@@ -27,7 +27,7 @@ public class WeaponSpawnerScript : MonoBehaviour {
 
     private Sprite weaponSprite;
     private SpriteRenderer mySpriteRenderer;
-	
+
     // Use this for initialization
 	void Start () {
         dropPosition = transform.position;
@@ -37,7 +37,7 @@ public class WeaponSpawnerScript : MonoBehaviour {
         mySpriteRenderer = GetComponent<SpriteRenderer>();
         mySpriteRenderer.sprite = weaponSprite;
 	}
-	
+
     public void drop(Vector2 position, Vector3 direction)
     {
         weaponDropped = true;
