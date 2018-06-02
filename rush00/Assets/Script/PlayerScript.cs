@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class PlayerScript : MonoBehaviour {
 
+    public GameObject player;
     public GameObject leg;
     public float moveSpeed;
-    public Transform playerTransform;
+    public SpriteRenderer attachWeapon;
 
     private Animator legAnimator;
     private float offset = 90f;
@@ -15,7 +16,45 @@ public class PlayerScript : MonoBehaviour {
 
     void Start()
     {
+        
         legAnimator = leg.GetComponent<Animator>();
+    }
+
+	void Update()
+    {
+        // Gestion suivi du curseur souris
+        Vector3 difference = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+        difference.Normalize();
+        float rotation_z = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0f, 0f, rotation_z + offset);
+
+        keyBoardHandler();
+
+        if (moving)
+            legAnimator.Play("legAnimation");
+        else
+            legAnimator.Play("idle");
+        
+        if (Input.GetKeyDown("e"))
+        {
+            pickUp();
+        }
+        player.transform.Translate(direction.normalized * Time.deltaTime * moveSpeed);
+    }
+
+    void pickUp()
+    {
+        RaycastHit2D hit;
+        Vector2 point = player.transform.position;
+        hit = Physics2D.Raycast(point, Vector2.up, 0);
+        if (hit && hit.collider && hit.collider.gameObject.tag == "weaponSpawner")
+        {
+            WeaponSpawnerScript spawner = hit.collider.gameObject.GetComponent<WeaponSpawnerScript>();
+            if (spawner && attachWeapon)
+            {
+                attachWeapon.sprite = spawner.weapons[spawner.Index].attachBody;
+            }
+        }        
     }
 
     void keyBoardHandler()
@@ -45,28 +84,6 @@ public class PlayerScript : MonoBehaviour {
         }
 
         if (Input.GetKeyUp("w") || Input.GetKeyUp("a") || Input.GetKeyUp("s") || Input.GetKeyUp("d"))
-            moving = false;        
-    }
-
-	void Update()
-    {
-        // Gestion suivi du curseur souris
-        Vector3 difference = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
-        difference.Normalize();
-        float rotation_z = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0f, 0f, rotation_z + offset);
-
-        keyBoardHandler();
-
-        if (moving)
-            legAnimator.Play("legAnimation");
-        else
-            legAnimator.Play("idle");
-        
-        if (Input.GetKeyDown("e"))
-        {
             moving = false;
-        }
-        playerTransform.Translate(direction.normalized * Time.deltaTime * moveSpeed);
     }
 }
