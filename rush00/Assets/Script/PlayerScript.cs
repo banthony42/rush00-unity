@@ -9,6 +9,7 @@ public class PlayerScript : MonoBehaviour {
     public float moveSpeed;
     public SpriteRenderer attachWeapon;
 
+    private WeaponSpawnerScript pickUpWSpawner;
     private Animator legAnimator;
     private float offset = 90f;
     private Vector2 direction;
@@ -34,12 +35,15 @@ public class PlayerScript : MonoBehaviour {
             legAnimator.Play("legAnimation");
         else
             legAnimator.Play("idle");
-        
-        if (Input.GetKeyDown("e"))
-        {
-            pickUp();
-        }
         player.transform.Translate(direction.normalized * Time.deltaTime * moveSpeed);
+    }
+
+    void dropWeapon()
+    {
+        Vector3 direction = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+        direction.Normalize();
+        pickUpWSpawner.drop(player.transform.position, direction);
+        attachWeapon.sprite = null;
     }
 
     void pickUp()
@@ -49,10 +53,11 @@ public class PlayerScript : MonoBehaviour {
         hit = Physics2D.Raycast(point, Vector2.up, 0);
         if (hit && hit.collider && hit.collider.gameObject.tag == "weaponSpawner")
         {
-            WeaponSpawnerScript spawner = hit.collider.gameObject.GetComponent<WeaponSpawnerScript>();
-            if (spawner && attachWeapon)
+            pickUpWSpawner = hit.collider.gameObject.GetComponent<WeaponSpawnerScript>();
+            if (pickUpWSpawner && attachWeapon)
             {
-                attachWeapon.sprite = spawner.weapons[spawner.Index].attachBody;
+                attachWeapon.sprite = pickUpWSpawner.weapons[pickUpWSpawner.Index].attachBody;
+                pickUpWSpawner.WeaponDropped = false;
             }
         }        
     }
@@ -85,5 +90,11 @@ public class PlayerScript : MonoBehaviour {
 
         if (Input.GetKeyUp("w") || Input.GetKeyUp("a") || Input.GetKeyUp("s") || Input.GetKeyUp("d"))
             moving = false;
+
+        if (Input.GetKeyDown("e"))
+            pickUp();
+
+        if (Input.GetMouseButton(1))
+            dropWeapon();
     }
 }
