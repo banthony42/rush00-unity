@@ -13,11 +13,11 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - ground
+  - obstacle
+  - weapon
+  - ennemi
+  - player
   - 
   - 
   - 
@@ -40,4 +40,19 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: ground
+    uniqueID: 2083243573
+    locked: 0
+  - name: obstacle
+    uniqueID: 2165653293
+    locked: 0
+  - name: weapon
+    uniqueID: 2557197703
+    locked: 0
+  - name: player
+    uniqueID: 550963391
+    locked: 0
+  - name: ennemis
+    uniqueID: 2687995063
     locked: 0
