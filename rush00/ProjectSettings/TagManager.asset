@@ -6,6 +6,7 @@ TagManager:
   tags:
   - weapon
   - weaponSpawner
+  - Character
   layers:
   - Default
   - TransparentFX
