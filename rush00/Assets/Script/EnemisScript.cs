@@ -19,20 +19,33 @@ public class EnemisScript : MonoBehaviour {
 		currentAmo.GetComponent<WeaponScript>().bullet = WeaponScript.bullet;
 		currentAmo.GetComponent<WeaponScript>().shotWeapon = WeaponScript.shotWeapon;
 		currentAmo.GetComponent<WeaponScript>().weaponCharger = WeaponScript.weaponCharger;
-		currentAmo.GetComponent<WeaponScript>().label = WeaponScript.label;
 		currentAmo.GetComponent<WeaponScript>().weaponName = WeaponScript.weaponName;
+		StartCoroutine(Fire());
 	}
 
 	void Update()
 	{
 		//IA de l'ennemis a faire
-		if (hasTarget)
-			Fire();
 	}
 
-	void Fire()
+	IEnumerator Fire()
 	{
-		currentAmo.GetComponent<WeaponScript>().weaponCharger = 1;
-		currentAmo.GetComponent<WeaponScript>().Fire(player.transform.position);
+		while (true)
+		{
+			if (hasTarget)
+			{
+				int tmp = Random.Range(1, 4);
+				while (tmp > 0)
+				{
+					currentAmo.GetComponent<WeaponScript>().Fire(player.transform.position);
+					yield return new WaitForSeconds(0.1f);
+					tmp -= 1;
+				}
+			}
+			yield return new WaitForSeconds(1);
+			// 								 ^
+			//						    attak speed
+		}
 	}
+
 }

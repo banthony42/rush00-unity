@@ -21,6 +21,7 @@ public class DoorPhysics : MonoBehaviour {
 		{
 			Quaternion target = Quaternion.Euler(DoorCloseAngle, 0, 0);
 			transform.localRotation = Quaternion.Slerp(transform.localRotation, target, Time.deltaTime * smooth);
+
 		 }
 	}
 

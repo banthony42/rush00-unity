@@ -10,11 +10,14 @@ public class PlayerScript : MonoBehaviour {
     public SpriteRenderer attachWeapon;
     public LayerMask weaponMask;
 
+	public GameObject			currentAmo;
+
     private WeaponSpawnerScript pickUpWSpawner;
     private Animator legAnimator;
     private float offset = 90f;
     private Vector2 direction;
-    private bool moving = false;
+	private bool moving = false;
+    private bool hasWeapon = false;
 
     void Start()
     {
@@ -41,10 +44,13 @@ public class PlayerScript : MonoBehaviour {
 
     void dropWeapon()
     {
+		if (hasWeapon == false)
+			return ;
         Vector2 dirDrop = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
         dirDrop.Normalize();
         pickUpWSpawner.drop(player.transform.position, dirDrop);
         attachWeapon.sprite = null;
+		hasWeapon = false;
     }
 
     void pickUp()
@@ -59,9 +65,21 @@ public class PlayerScript : MonoBehaviour {
             {
                 attachWeapon.sprite = pickUpWSpawner.weapons[pickUpWSpawner.Index].attachBody;
                 pickUpWSpawner.WeaponDropped = false;
+				hasWeapon = true;
+				UpdateCurrentWeapon(pickUpWSpawner.weapons[pickUpWSpawner.Index]);
             }
         }
     }
+
+	void UpdateCurrentWeapon(WeaponScript WeaponScript)
+	{
+		currentAmo.GetComponent<WeaponScript>().label = "PlayerBullet";
+		currentAmo.GetComponent<SpriteRenderer>().sprite = WeaponScript.attachBody;
+		currentAmo.GetComponent<WeaponScript>().bullet = WeaponScript.bullet;
+		currentAmo.GetComponent<WeaponScript>().shotWeapon = WeaponScript.shotWeapon;
+		currentAmo.GetComponent<WeaponScript>().weaponCharger = WeaponScript.weaponCharger;
+		currentAmo.GetComponent<WeaponScript>().weaponName = WeaponScript.weaponName;
+	}
 
     void keyBoardHandler()
     {
@@ -97,5 +115,8 @@ public class PlayerScript : MonoBehaviour {
 
         if (Input.GetMouseButton(1))
             dropWeapon();
+
+		if (Input.GetMouseButton(0) && hasWeapon)
+			currentAmo.GetComponent<WeaponScript>().Fire(Camera.main.ScreenToWorldPoint(Input.mousePosition));
     }
 }

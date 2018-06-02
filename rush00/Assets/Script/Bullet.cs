@@ -32,8 +32,12 @@ public class Bullet : MonoBehaviour {
 	{
 		if (other.gameObject.tag == "Character")
 		{
-			if (label == "PlayedBullet")
+			Debug.Log("label = " + label);
+			if (label == "PlayerBullet")
+			{
 				Destroy(other.gameObject);
+				Debug.Log("destroy ennemis !");
+			}
 			Destroy(gameObject);
 		}
 		else if (other.gameObject.tag == "Player")
@@ -43,5 +47,7 @@ public class Bullet : MonoBehaviour {
 			//		other.gameObject.
 			Destroy(gameObject);
 		}
+		else if (other.gameObject.layer == 9)
+			Destroy(gameObject);
 	}
 }

@@ -14,7 +14,7 @@ public class WeaponScript : MonoBehaviour {
 
 	public void Fire(Vector2 direction)
 	{
-		if (weaponCharger != 0)
+		if (weaponCharger > 0)
 		{
 			float		delta;
 			float		deltaX;
