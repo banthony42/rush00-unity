@@ -30,17 +30,16 @@ public class Bullet : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D other)
 	{
-		Debug.Log("FIRE !");
 		if (other.gameObject.tag == "Character")
 		{
 			if (label == "PlayedBullet")
-	//
-	//		other.gameObject.
+				Destroy(other.gameObject);
 			Destroy(gameObject);
 		}
 		else if (other.gameObject.tag == "Player")
 		{
 			if (label == "EnnemisBullet")
+			//
 			//		other.gameObject.
 			Destroy(gameObject);
 		}

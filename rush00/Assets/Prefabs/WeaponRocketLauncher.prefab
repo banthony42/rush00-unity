@@ -79,10 +79,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attachBody: {fileID: 21300000, guid: e3140efe7137c48f8801a03d57bcc3d9, type: 3}
-  weaponAmo: {fileID: 21300000, guid: 6e6cd268a39814164b43e97b0f7a3727, type: 3}
-  weaponName: RocketLauncher
+  bullet: {fileID: 1317647847429946, guid: 7b43473d7841f4c00bf6391465cc59f0, type: 2}
   shotWeapon: 1
   weaponCharger: 5
+  label: EnnemisBullet
+  weaponName: RocketLauncher
 --- !u!212 &212160162616305124
 SpriteRenderer:
   m_ObjectHideFlags: 1

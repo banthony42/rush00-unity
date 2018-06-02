@@ -58,7 +58,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.125, y: 0.40625}
+    oldSize: {x: 0.3125, y: 0.5625}
     newSize: {x: 0.75, y: 0.5}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -79,10 +79,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attachBody: {fileID: 21300000, guid: 6a80894c63238427280b822e403bcc63, type: 3}
-  weaponAmo: {fileID: 21300000, guid: f1ca17da23b794eb48e841207ed79302, type: 3}
-  weaponName: Saber
+  bullet: {fileID: 0}
   shotWeapon: 0
   weaponCharger: 0
+  label: EnnemisBullet
+  weaponName: Saber
 --- !u!212 &212124821436425828
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -117,7 +118,7 @@ SpriteRenderer:
   m_SortingLayerID: -1737769593
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f47402979bf234b2d8a7c4f680d637d0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6a80894c63238427280b822e403bcc63, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

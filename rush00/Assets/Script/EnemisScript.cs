@@ -25,7 +25,6 @@ public class EnemisScript : MonoBehaviour {
 
 	void Update()
 	{
-
 		//IA de l'ennemis a faire
 		if (hasTarget)
 			Fire();

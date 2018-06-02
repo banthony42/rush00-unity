@@ -18,11 +18,11 @@ public class PlayerScript : MonoBehaviour {
 
     void Start()
     {
-        
+
         legAnimator = leg.GetComponent<Animator>();
     }
 
-	void Update()
+	void FixedUpdate()
     {
         // Gestion suivi du curseur souris
         Vector3 difference = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
@@ -60,7 +60,7 @@ public class PlayerScript : MonoBehaviour {
                 attachWeapon.sprite = pickUpWSpawner.weapons[pickUpWSpawner.Index].attachBody;
                 pickUpWSpawner.WeaponDropped = false;
             }
-        }        
+        }
     }
 
     void keyBoardHandler()

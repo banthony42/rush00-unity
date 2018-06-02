@@ -72,7 +72,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -99,8 +99,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b8fa711fc44745269d9fe8ec5abcfea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
-  frameLife: 80
+  speed: 0.8
+  TimeUntilEveryFrame: 0.5
+  NumberOfFrameMAX: 40
+  vectorDirector: {x: 0, y: 0, z: 0}
+  dammage: 0
+  label: 
 --- !u!212 &212562565727786364
 SpriteRenderer:
   m_ObjectHideFlags: 1
