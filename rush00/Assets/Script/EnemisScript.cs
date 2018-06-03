@@ -41,7 +41,7 @@ public class EnemisScript : MonoBehaviour {
 
 	private void OnDestroy()
 	{
-        gameManager.removeEnnemis(gameObject.name);
+        gameManager.removeEnnemis(gameObject);
 	}
 
 	public void DetectPlayer()

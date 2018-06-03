@@ -14,17 +14,18 @@ public class GameManager : MonoBehaviour {
 	{
 	}
 
-    public void removeEnnemis(string name)
+    public void removeEnnemis(GameObject item)
     {
-        Debug.Log("Ennemi has been removed :" + name);
+        if (item)
+        {
+            EnnemisList.Remove(item);
+            Debug.Log("Ennemi has been removed :" + item.name);
+        }
     }
 
 	// Update is called once per frame
 	void Update ()
 	{
-
-
-
         if (Player == null || victory)
             Debug.Log("Win!");
 	}
