@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class DoorPhysics : MonoBehaviour {
 
+    public bool horizontal;
+
 	private const float	smooth = 2.0f;
 	private const float	DoorOpenAngle = 90.0f;
 	private const float	DoorCloseAngle = 0.0f;
@@ -13,14 +15,29 @@ public class DoorPhysics : MonoBehaviour {
 	{
 		if (open == true)
 		{
-			Quaternion target = Quaternion.Euler(DoorOpenAngle, 0, 0);
-			transform.localRotation = Quaternion.Slerp(transform.localRotation, target, Time.deltaTime * smooth);
+            if (horizontal)
+            {
+                Quaternion target = Quaternion.Euler(0, DoorOpenAngle, 90);
+                transform.localRotation = Quaternion.Slerp(transform.localRotation, target, Time.deltaTime * smooth);
+            }
+            else
+            {
+                Quaternion target = Quaternion.Euler(DoorOpenAngle, 0, 0);
+                transform.localRotation = Quaternion.Slerp(transform.localRotation, target, Time.deltaTime * smooth);                
+            }
 		}
 		else
 		{
-			Quaternion target = Quaternion.Euler(DoorCloseAngle, 0, 0);
-			transform.localRotation = Quaternion.Slerp(transform.localRotation, target, Time.deltaTime * smooth);
-
+            if (horizontal)
+            {
+                Quaternion target = Quaternion.Euler(0, DoorCloseAngle, 90);
+                transform.localRotation = Quaternion.Slerp(transform.localRotation, target, Time.deltaTime * smooth);
+            }
+            else
+            {
+                Quaternion target = Quaternion.Euler(DoorCloseAngle, 0, 0);
+                transform.localRotation = Quaternion.Slerp(transform.localRotation, target, Time.deltaTime * smooth);
+            }
 		 }
 	}
 
