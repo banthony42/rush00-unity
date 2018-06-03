@@ -9,7 +9,8 @@ public class EnemisScript : MonoBehaviour {
 	public GameObject			currentAmo;
 
 	private WeaponScript		WeaponScript;
-	public bool				hasTarget = false;
+	public bool					hasTarget = false;
+	public int					Status = 0;
 
 	void Start()
 	{
@@ -24,15 +25,17 @@ public class EnemisScript : MonoBehaviour {
 		StartCoroutine(ResetState());
 	}
 
-/*
-Les ennemis peuvent voir le joueur loin devant eux et un petit peu derrière eux.
-Lorsqu’ils repèrent le joueur ils le poursuivent en lui tirant dessus. Leur poursuite
-s’arrête après un certain temps ou à la mort du joueur ou de l’ennemi.
-*/
-
 	void Update()
 	{
 		DetectPlayer();
+		//a modif en dessous pour suivre le joueur
+		if (hasTarget)
+		{
+			transform.GetChild(0).GetChild(3).GetComponent<Animator>().SetInteger("Status", 1);
+			Fire();
+		}
+		else
+			transform.GetChild(0).GetChild(3).GetComponent<Animator>().SetInteger("Status", 0);
 	}
 
 	public void DetectPlayer()

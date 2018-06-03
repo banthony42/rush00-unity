@@ -117,6 +117,6 @@ public class PlayerScript : MonoBehaviour {
             dropWeapon();
 
 		if (Input.GetMouseButton(0) && hasWeapon)
-			currentAmo.GetComponent<WeaponScript>().Fire(Camera.main.ScreenToWorldPoint(Input.mousePosition));
-    }
+		currentAmo.GetComponent<WeaponScript>().Fire(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+	}
 }

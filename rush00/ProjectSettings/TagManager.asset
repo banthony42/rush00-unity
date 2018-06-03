@@ -9,6 +9,7 @@ TagManager:
   - Character
   - EnnemisBullet
   - PlayerBullet
+  - PlayerFire
   layers:
   - Default
   - TransparentFX
