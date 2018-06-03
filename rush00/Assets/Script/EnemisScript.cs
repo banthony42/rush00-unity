@@ -7,11 +7,18 @@ public class EnemisScript : MonoBehaviour {
 	public WeaponSpawnerScript	weaponSpawner;
 	public GameObject			player;
 	public GameObject			currentAmo;
-    public GameManager          gameManager;
+	public GameManager          gameManager;
+    public GameObject			checkPoint;
 
 	private WeaponScript		WeaponScript;
 	public bool					hasTarget = false;
 	public int					Status = 0;
+
+	private float				speed = 0.2f;
+	private float				absoluteDistanceToNextCheckpoint;
+	private float				currentDist;
+	private float				previousDist;
+	private Vector3				vectorDirector;
 
 	void Start()
 	{
@@ -24,6 +31,7 @@ public class EnemisScript : MonoBehaviour {
 		currentAmo.GetComponent<WeaponScript>().weaponName = WeaponScript.weaponName;
 		StartCoroutine(Fire());
 		StartCoroutine(ResetState());
+		calculateDistAndDirectorVectorToNextCheckpoint();
 	}
 
 	void Update()
@@ -36,7 +44,36 @@ public class EnemisScript : MonoBehaviour {
 			Fire();
 		}
 		else
-			transform.GetChild(0).GetChild(3).GetComponent<Animator>().SetInteger("Status", 0);
+			MoveToNextCheckpoint();
+	}
+
+	private void calculateDistAndDirectorVectorToNextCheckpoint()
+	{
+		float		deltaX;
+		float		deltaY;
+
+		deltaX = (checkPoint.transform.position.x - transform.position.x);
+		deltaY = (checkPoint.transform.position.y - transform.position.y);
+		absoluteDistanceToNextCheckpoint = Mathf.Sqrt((deltaX * deltaX) + (deltaY * deltaY));
+		vectorDirector = new Vector3(deltaX / absoluteDistanceToNextCheckpoint, deltaY / absoluteDistanceToNextCheckpoint, 0.0f);
+		currentDist = absoluteDistanceToNextCheckpoint;
+	}
+
+	private void MoveToNextCheckpoint()
+	{
+		float		deltaX;
+		float		deltaY;
+
+		previousDist = currentDist;
+		transform.position += vectorDirector * speed;
+		deltaX = (checkPoint.transform.position.x - transform.position.x);
+		deltaY = (checkPoint.transform.position.y - transform.position.y);
+		currentDist = (Mathf.Sqrt((deltaX * deltaX) + (deltaY * deltaY)));
+		if (previousDist < currentDist)
+		{
+			checkPoint = checkPoint.GetComponent<Checkpoint>().NextCheckpoint;
+			calculateDistAndDirectorVectorToNextCheckpoint();
+		}
 	}
 
 	private void OnDestroy()
