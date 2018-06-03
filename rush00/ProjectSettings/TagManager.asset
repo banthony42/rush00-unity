@@ -17,6 +17,7 @@ TagManager:
   - salle5
   - salle6
   - porte
+  - Checkpoint
   layers:
   - Default
   - TransparentFX
