@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class endGameUiScript : MonoBehaviour {
+public class endGameUiScript : MonoBehaviour
+{
 
     // Use this for initialization
     public Vector3 directionStart;
@@ -21,22 +22,8 @@ public class endGameUiScript : MonoBehaviour {
             direction = Vector3.back;
     }
 
-    // Update is called once per frame
-    public void onClic(string button)
-    {
-        if (button == "keepPlaying")
-        {
-            UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
-        }
-        else if (button == "backToMenu")
-        {
-            UnityEngine.SceneManagement.SceneManager.LoadScene("Menu");
-        }
-    }
-
     void Update()
     {
-
         if (i > timer)
         {
             if (direction == Vector3.forward)
