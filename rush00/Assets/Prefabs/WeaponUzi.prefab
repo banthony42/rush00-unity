@@ -82,6 +82,7 @@ MonoBehaviour:
   bullet: {fileID: 1510416988049722, guid: 29d9becaa7b6741859ebfeb783a7c7be, type: 2}
   shotWeapon: 1
   weaponCharger: 20
+  fireRate: 0.002
   label: EnnemisBullet
   weaponName: Uzi
 --- !u!212 &212759545596694542

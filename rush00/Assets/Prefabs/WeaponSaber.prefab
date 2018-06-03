@@ -82,6 +82,7 @@ MonoBehaviour:
   bullet: {fileID: 1117160648882706, guid: 50256f81773f042cd9aadc1fda9f8f33, type: 2}
   shotWeapon: 0
   weaponCharger: 1
+  fireRate: 1.1
   label: EnnemisBullet
   weaponName: Saber
 --- !u!212 &212124821436425828

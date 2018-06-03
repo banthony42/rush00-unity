@@ -82,6 +82,7 @@ MonoBehaviour:
   bullet: {fileID: 1317647847429946, guid: 7b43473d7841f4c00bf6391465cc59f0, type: 2}
   shotWeapon: 1
   weaponCharger: 5
+  fireRate: 2.5
   label: EnnemisBullet
   weaponName: RocketLauncher
 --- !u!212 &212160162616305124

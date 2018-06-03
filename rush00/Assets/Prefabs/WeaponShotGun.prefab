@@ -82,6 +82,7 @@ MonoBehaviour:
   bullet: {fileID: 1054522920229004, guid: 732d5754d354a4595b3cf907b693fe89, type: 2}
   shotWeapon: 1
   weaponCharger: 15
+  fireRate: 1
   label: EnnemisBullet
   weaponName: ShotGun
 --- !u!212 &212576813378777742

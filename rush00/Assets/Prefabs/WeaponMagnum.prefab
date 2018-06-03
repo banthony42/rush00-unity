@@ -82,6 +82,7 @@ MonoBehaviour:
   bullet: {fileID: 1787396204777944, guid: 9295602cc7ae341c190df6e0e71ac42d, type: 2}
   shotWeapon: 1
   weaponCharger: 7
+  fireRate: 1.5
   label: 
   weaponName: Magnum
 --- !u!212 &212492816935347078

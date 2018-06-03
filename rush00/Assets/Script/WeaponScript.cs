@@ -9,6 +9,7 @@ public class WeaponScript : MonoBehaviour {
 
     public bool		shotWeapon;
     public int		weaponCharger;
+    public float    fireRate;
 	public string	label;
 	public string	weaponName;
 
