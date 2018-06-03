@@ -110,7 +110,8 @@ public class EnemisScript : MonoBehaviour {
 
 	private void OnDestroy()
 	{
-        myAudioSource.PlayOneShot(deathSound);
+		if (myAudioSource)
+        	myAudioSource.PlayOneShot(deathSound);
         gameManager.removeEnnemis(gameObject);
 	}
 
