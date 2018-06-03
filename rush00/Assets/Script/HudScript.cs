@@ -6,6 +6,7 @@ public class HudScript : MonoBehaviour {
 
     public string field;
     public PlayerScript player;
+    public GameObject gm;
 
     private UnityEngine.UI.Text weaponNameText;
     private UnityEngine.UI.Text munitionText;

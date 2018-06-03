@@ -7,7 +7,17 @@ public class GameManager : MonoBehaviour {
 	public List<GameObject>	EnnemisList = new List<GameObject>();
 	public GameObject		Player;
 
-    private bool victory = false;
+    private bool gameOVer = false;
+
+    public bool GameOver
+    {
+        get 
+        {
+            return gameOVer;
+        }
+    }
+
+    private bool endGame = false;
 //	gestion du jeu ici
 
 	void Start ()
@@ -26,10 +36,17 @@ public class GameManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
 	{
-        if (EnnemisList.Count == 0)
+        if (EnnemisList.Count == 0 && !endGame)
+        {
             Debug.Log("Win!");
-        if (Player == null)
-            Debug.Log("Loose!");            
+            endGame = true;
+        }
+        if (Player == null && !endGame)
+        {
+            Debug.Log("Loose!");
+            endGame = true;
+            gameOVer = true;
+        }
 	}
 
 }
