@@ -378,6 +378,11 @@ Prefab:
       propertyPath: m_Layer
       value: 12
       objectReference: {fileID: 0}
+    - target: {fileID: 114023161923941398, guid: 2f31e1ac70be44cb7a766bfcb22ab8e3,
+        type: 2}
+      propertyPath: weaponMask.m_Bits
+      value: 1024
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2f31e1ac70be44cb7a766bfcb22ab8e3, type: 2}
   m_IsPrefabParent: 0
@@ -395,11 +400,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4805729676067250, guid: da040c16b101a432aac400a2c4d43471, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 1.08
+      value: 1.84
       objectReference: {fileID: 0}
     - target: {fileID: 4805729676067250, guid: da040c16b101a432aac400a2c4d43471, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 9.07
+      value: 13.13
       objectReference: {fileID: 0}
     - target: {fileID: 4805729676067250, guid: da040c16b101a432aac400a2c4d43471, type: 2}
       propertyPath: m_LocalPosition.z
@@ -434,6 +439,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114928257821451874, guid: da040c16b101a432aac400a2c4d43471,
+        type: 2}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 61121187}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: da040c16b101a432aac400a2c4d43471, type: 2}
   m_IsPrefabParent: 0
@@ -699,6 +709,11 @@ Prefab:
       propertyPath: m_Name
       value: EnemisPrefab (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 114928257821451874, guid: da040c16b101a432aac400a2c4d43471,
+        type: 2}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 61121187}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: da040c16b101a432aac400a2c4d43471, type: 2}
   m_IsPrefabParent: 0
@@ -716,11 +731,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4805729676067250, guid: da040c16b101a432aac400a2c4d43471, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 1.97
+      value: 2.12
       objectReference: {fileID: 0}
     - target: {fileID: 4805729676067250, guid: da040c16b101a432aac400a2c4d43471, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 5.03
+      value: 7.92
       objectReference: {fileID: 0}
     - target: {fileID: 4805729676067250, guid: da040c16b101a432aac400a2c4d43471, type: 2}
       propertyPath: m_LocalPosition.z
@@ -755,6 +770,11 @@ Prefab:
       propertyPath: m_Name
       value: EnemisPrefab (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 114928257821451874, guid: da040c16b101a432aac400a2c4d43471,
+        type: 2}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 61121187}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: da040c16b101a432aac400a2c4d43471, type: 2}
   m_IsPrefabParent: 0

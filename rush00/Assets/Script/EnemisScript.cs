@@ -7,6 +7,7 @@ public class EnemisScript : MonoBehaviour {
 	public WeaponSpawnerScript	weaponSpawner;
 	public GameObject			player;
 	public GameObject			currentAmo;
+    public GameManager          gameManager;
 
 	private WeaponScript		WeaponScript;
 	public bool					hasTarget = false;
@@ -36,6 +37,11 @@ public class EnemisScript : MonoBehaviour {
 		}
 		else
 			transform.GetChild(0).GetChild(3).GetComponent<Animator>().SetInteger("Status", 0);
+	}
+
+	private void OnDestroy()
+	{
+        gameManager.removeEnnemis(gameObject.name);
 	}
 
 	public void DetectPlayer()

@@ -14,6 +14,11 @@ public class GameManager : MonoBehaviour {
 	{
 	}
 
+    public void removeEnnemis(string name)
+    {
+        Debug.Log("Ennemi has been removed :" + name);
+    }
+
 	// Update is called once per frame
 	void Update ()
 	{

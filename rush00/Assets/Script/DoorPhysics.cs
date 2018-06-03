@@ -7,7 +7,6 @@ public class DoorPhysics : MonoBehaviour {
 	private const float	smooth = 2.0f;
 	private const float	DoorOpenAngle = 90.0f;
 	private const float	DoorCloseAngle = 0.0f;
-
 	private bool	open = false;
 
 	void Update ()
@@ -25,7 +24,7 @@ public class DoorPhysics : MonoBehaviour {
 		 }
 	}
 
-	void OnTriggerEnter2D(Collider2D other)
+	void OnCollisionEnter2D(Collision2D other)
 	{
 		if (other.gameObject.tag == "Character" || other.gameObject.tag == "Player")
 		{
