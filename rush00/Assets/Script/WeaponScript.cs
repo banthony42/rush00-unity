@@ -6,12 +6,17 @@ public class WeaponScript : MonoBehaviour {
 
 	public Sprite		attachBody;
 	public GameObject	bullet;
+    public AudioClip WeaponSound;
 
     public bool		shotWeapon;
     public int		weaponCharger;
     public float    fireRate;
 	public string	label;
 	public string	weaponName;
+
+	private void Start()
+	{
+	}
 
 	public void Fire(Vector2 direction)
 	{

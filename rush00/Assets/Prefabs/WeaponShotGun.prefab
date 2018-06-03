@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 212576813378777742}
   - component: {fileID: 114822499522110214}
   - component: {fileID: 61883605977411956}
+  - component: {fileID: 82021415713632932}
   m_Layer: 10
   m_Name: WeaponShotGun
   m_TagString: weapon
@@ -67,6 +68,86 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.875, y: 0.5}
   m_EdgeRadius: 0
+--- !u!82 &82021415713632932
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1313101042608226}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!114 &114822499522110214
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -80,6 +161,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attachBody: {fileID: 21300000, guid: 2775ead70e19f415884382d7d0911c04, type: 3}
   bullet: {fileID: 1054522920229004, guid: 732d5754d354a4595b3cf907b693fe89, type: 2}
+  WeaponSound: {fileID: 8300000, guid: c20f224e6aef940ae9d60c7c5f3d8857, type: 3}
   shotWeapon: 1
   weaponCharger: 15
   fireRate: 1

@@ -9,6 +9,9 @@ public class PlayerScript : MonoBehaviour {
     public float moveSpeed;
     public SpriteRenderer attachWeapon;
     public LayerMask weaponMask;
+    public AudioClip pickUpWeaponSound;
+    public AudioClip dropWeaponSound;
+    public AudioClip emptyChargerSound;
 
 	public GameObject			currentAmo;
 
@@ -19,7 +22,7 @@ public class PlayerScript : MonoBehaviour {
 	private bool moving = false;
     private bool hasWeapon = false;
     private bool allowFire = true;
-
+    private AudioSource myAudioSource;
     public bool HasWeapon
     {
         get
@@ -30,7 +33,7 @@ public class PlayerScript : MonoBehaviour {
 
     void Start()
     {
-
+        myAudioSource = GetComponent<AudioSource>();
         legAnimator = leg.GetComponent<Animator>();
     }
 
@@ -55,6 +58,7 @@ public class PlayerScript : MonoBehaviour {
     {
 		if (hasWeapon == false)
 			return ;
+        myAudioSource.PlayOneShot(dropWeaponSound);
         Vector2 dirDrop = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
         dirDrop.Normalize();
         pickUpWSpawner.drop(player.transform.position, dirDrop);
@@ -73,6 +77,7 @@ public class PlayerScript : MonoBehaviour {
             pickUpWSpawner = hit.collider.gameObject.GetComponent<WeaponSpawnerScript>();
             if (pickUpWSpawner && attachWeapon)
             {
+                myAudioSource.PlayOneShot(pickUpWeaponSound);
                 attachWeapon.sprite = pickUpWSpawner.weapons[pickUpWSpawner.Index].attachBody;
                 pickUpWSpawner.WeaponDropped = false;
 				hasWeapon = true;
@@ -90,6 +95,7 @@ public class PlayerScript : MonoBehaviour {
 		currentAmo.GetComponent<WeaponScript>().weaponCharger = WeaponScript.weaponCharger;
 		currentAmo.GetComponent<WeaponScript>().weaponName = WeaponScript.weaponName;
         currentAmo.GetComponent<WeaponScript>().fireRate = WeaponScript.fireRate;
+        currentAmo.GetComponent<WeaponScript>().WeaponSound = WeaponScript.WeaponSound;
 	}
 
     void keyBoardHandler()
@@ -135,6 +141,10 @@ public class PlayerScript : MonoBehaviour {
 	{
         allowFire = false;
 		currentAmo.GetComponent<WeaponScript>().Fire(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+        if (currentAmo.GetComponent<WeaponScript>().weaponCharger > 0)
+            myAudioSource.PlayOneShot(currentAmo.GetComponent<WeaponScript>().WeaponSound);
+        else
+            myAudioSource.PlayOneShot(emptyChargerSound);
 		player.tag = "PlayerFire";
         yield return new WaitForSeconds(0.3f * currentAmo.GetComponent<WeaponScript>().fireRate);
 		player.tag = "Player";

@@ -7,7 +7,11 @@ public class GameManager : MonoBehaviour {
 	public List<GameObject>	EnnemisList = new List<GameObject>();
 	public GameObject		Player;
     public GameObject       EndGameUi;
+    public AudioClip        winSound;
+    public AudioClip        looseSound;
+    public AudioClip        playerDeathSound;
 
+    private AudioSource myAudioSource;
     private bool gameOVer = false;
 
     public bool GameOver
@@ -23,6 +27,7 @@ public class GameManager : MonoBehaviour {
 
 	void Start ()
 	{
+        myAudioSource = GetComponent<AudioSource>();
 	}
 
     public void removeEnnemis(GameObject item)
@@ -39,12 +44,15 @@ public class GameManager : MonoBehaviour {
 	{
         if (EnnemisList.Count == 0 && !endGame)
         {
+            myAudioSource.PlayOneShot(winSound);
             Debug.Log("Win!");
             endGame = true;
             EndGameUi.SetActive(true);
         }
         if (Player == null && !endGame)
         {
+            myAudioSource.PlayOneShot(playerDeathSound);
+            myAudioSource.PlayOneShot(looseSound);
             Debug.Log("Loose!");
             endGame = true;
             gameOVer = true;
