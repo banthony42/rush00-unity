@@ -77,15 +77,18 @@ public class EnemisScript : MonoBehaviour {
 
 	IEnumerator Fire()
 	{
-		while (true)
+        while (true)
 		{
 			if (hasTarget == true)
 			{
 				int tmp = Random.Range(1, 4);
 				while (tmp > 0)
 				{
-					currentAmo.GetComponent<WeaponScript>().Fire(player.transform.position);
-					currentAmo.GetComponent<WeaponScript>().weaponCharger = 1;
+                    if (player)
+                    {
+                        currentAmo.GetComponent<WeaponScript>().Fire(player.transform.position);
+                        currentAmo.GetComponent<WeaponScript>().weaponCharger = 1;
+                    }
 					yield return new WaitForSeconds(0.1f);
 					tmp -= 1;
 				}

@@ -42,8 +42,10 @@ public class Bullet : MonoBehaviour {
 		else if (other.gameObject.tag == "Player")
 		{
 			if (label == "EnnemisBullet")
-			//
-			//		other.gameObject.
+            {
+                Destroy(other.gameObject);
+                Debug.Log("destroy player !" + other.gameObject.name);
+            }
 			Destroy(gameObject);
 		}
 		else if (other.gameObject.layer == 9)
