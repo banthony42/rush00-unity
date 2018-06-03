@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 61353719031397934}
   - component: {fileID: 50435395636888378}
   - component: {fileID: 114598057101190534}
-  m_Layer: 10
+  m_Layer: 13
   m_Name: MagnumBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}

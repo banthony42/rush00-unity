@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class CameraScript : MonoBehaviour {
     public GameObject player;
-
     // Use this for initialization
     void Start()
     {

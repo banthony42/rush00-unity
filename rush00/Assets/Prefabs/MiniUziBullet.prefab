@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 50605682497804342}
   - component: {fileID: 61622243819917652}
   - component: {fileID: 114766401086199538}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: MiniUziBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}

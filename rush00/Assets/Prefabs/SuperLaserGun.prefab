@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 61150275286771398}
   - component: {fileID: 50720825960529320}
   - component: {fileID: 114256863436088366}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: SuperLaserGun
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -35,7 +35,7 @@ public class Bullet : MonoBehaviour {
 			if (label == "PlayerBullet")
 			{
 				Destroy(other.gameObject);
-				Debug.Log("destroy ennemis !");
+                Debug.Log("destroy ennemis !" + other.gameObject.name);
 			}
 			Destroy(gameObject);
 		}

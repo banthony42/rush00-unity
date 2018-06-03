@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 61274078846955824}
   - component: {fileID: 50379009547862366}
   - component: {fileID: 114226233923723716}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: BazookaBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -103,7 +103,6 @@ MonoBehaviour:
   TimeUntilEveryFrame: 0
   NumberOfFrameMAX: 0
   vectorDirector: {x: 0, y: 0, z: 0}
-  dammage: 0
   label: 
 --- !u!212 &212393200828606596
 SpriteRenderer:
