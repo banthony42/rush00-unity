@@ -26,8 +26,10 @@ public class GameManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
 	{
-        if (Player == null || victory)
+        if (EnnemisList.Count == 0)
             Debug.Log("Win!");
+        if (Player == null)
+            Debug.Log("Loose!");            
 	}
 
 }
