@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 61282974065218234}
   - component: {fileID: 50537813710743678}
   - component: {fileID: 114010323208168520}
+  - component: {fileID: 61560454514911844}
   m_Layer: 11
   m_Name: EnemisBody
   m_TagString: Untagged
@@ -38,7 +39,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4948512612425854}
   - component: {fileID: 212224027606854962}
-  m_Layer: 9
+  m_Layer: 11
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -159,7 +160,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1461149268779216}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.84, y: 2.35, z: -0.048828125}
+  m_LocalPosition: {x: 6.54, y: 0.75, z: -0.048828125}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4811529747719072}
@@ -215,7 +216,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!50 &50537813710743678
 Rigidbody2D:
   serializedVersion: 4
@@ -248,7 +249,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.05074525, y: 0.044403076}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -259,7 +260,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 4.425382, y: 4.5395565}
+  m_Size: {x: 11.832009, y: 12.43804}
   m_EdgeRadius: 0
 --- !u!61 &61314213554390608
 BoxCollider2D:
@@ -285,6 +286,31 @@ BoxCollider2D:
   m_AutoTiling: 0
   serializedVersion: 2
   m_Size: {x: 0.70905685, y: 1.0484897}
+  m_EdgeRadius: 0
+--- !u!61 &61560454514911844
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1062275625356110}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.002667427, y: 0.07468891}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.67456913, y: 1.0320101}
   m_EdgeRadius: 0
 --- !u!95 &95403817432671168
 Animator:
@@ -328,8 +354,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attachBody: {fileID: 0}
   bullet: {fileID: 0}
+  WeaponSound: {fileID: 0}
   shotWeapon: 0
   weaponCharger: 0
+  fireRate: 0
   label: 
   weaponName: 
 --- !u!114 &114928257821451874
@@ -348,8 +376,10 @@ MonoBehaviour:
   player: {fileID: 0}
   currentAmo: {fileID: 1938878414708956}
   gameManager: {fileID: 0}
+  checkPoint: {fileID: 0}
   hasTarget: 0
   Status: 0
+  currentRoom: {fileID: 0}
 --- !u!212 &212124629548194214
 SpriteRenderer:
   m_ObjectHideFlags: 1
