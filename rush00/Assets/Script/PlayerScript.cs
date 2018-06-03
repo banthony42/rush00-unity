@@ -11,6 +11,7 @@ public class PlayerScript : MonoBehaviour {
     public LayerMask weaponMask;
 
 	public GameObject			currentAmo;
+	public GameObject			currentRoom;
 
     private WeaponSpawnerScript pickUpWSpawner;
     private Animator legAnimator;

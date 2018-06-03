@@ -14,11 +14,13 @@ public class EnemisScript : MonoBehaviour {
 	public bool					hasTarget = false;
 	public int					Status = 0;
 
-	private float				speed = 0.2f;
+	private float				speed = 0.1f;
 	private float				absoluteDistanceToNextCheckpoint;
 	private float				currentDist;
 	private float				previousDist;
 	private Vector3				vectorDirector;
+
+	public GameObject			currentRoom;
 
 	void Start()
 	{
@@ -31,32 +33,59 @@ public class EnemisScript : MonoBehaviour {
 		currentAmo.GetComponent<WeaponScript>().weaponName = WeaponScript.weaponName;
 		StartCoroutine(Fire());
 		StartCoroutine(ResetState());
-		calculateDistAndDirectorVectorToNextCheckpoint();
+		calculateDistAndDirectorVector(checkPoint);
+		transform.GetChild(0).GetChild(3).GetComponent<Animator>().SetInteger("Status", 1);
 	}
 
 	void Update()
 	{
 		DetectPlayer();
-		//a modif en dessous pour suivre le joueur
-		if (hasTarget)
+		if (hasTarget && player)
 		{
-			transform.GetChild(0).GetChild(3).GetComponent<Animator>().SetInteger("Status", 1);
+			runToPlayer();
 			Fire();
 		}
 		else
 			MoveToNextCheckpoint();
 	}
 
-	private void calculateDistAndDirectorVectorToNextCheckpoint()
+	private void runToPlayer()
+	{
+		if (currentRoom.GetComponent<Room>().roomNumber != player.transform.GetChild(0).GetComponent<PlayerScript>().currentRoom.GetComponent<Room>().roomNumber)
+		{
+			calculateDistAndDirectorVector(checkPoint);
+			checkPoint = currentRoom.GetComponent<Room>().CorrectCheckpoint[player.transform.GetChild(0).GetComponent<PlayerScript>().currentRoom.GetComponent<Room>().roomNumber];
+			MoveToNextCheckpoint();
+		}
+		else
+		{
+			calculateDistAndDirectorVector(player);
+			MoveToPlayer();
+		}
+	}
+
+	private void calculateDistAndDirectorVector(GameObject obj)
 	{
 		float		deltaX;
 		float		deltaY;
 
-		deltaX = (checkPoint.transform.position.x - transform.position.x);
-		deltaY = (checkPoint.transform.position.y - transform.position.y);
+		deltaX = (obj.transform.position.x - transform.position.x);
+		deltaY = (obj.transform.position.y - transform.position.y);
 		absoluteDistanceToNextCheckpoint = Mathf.Sqrt((deltaX * deltaX) + (deltaY * deltaY));
 		vectorDirector = new Vector3(deltaX / absoluteDistanceToNextCheckpoint, deltaY / absoluteDistanceToNextCheckpoint, 0.0f);
 		currentDist = absoluteDistanceToNextCheckpoint;
+	}
+
+	private void MoveToPlayer()
+	{
+		float		deltaX;
+		float		deltaY;
+
+		previousDist = currentDist;
+		transform.position += vectorDirector * speed;
+		deltaX = (player.transform.position.x - transform.position.x);
+		deltaY = (player.transform.position.y - transform.position.y);
+		currentDist = (Mathf.Sqrt((deltaX * deltaX) + (deltaY * deltaY)));
 	}
 
 	private void MoveToNextCheckpoint()
@@ -72,7 +101,7 @@ public class EnemisScript : MonoBehaviour {
 		if (previousDist < currentDist)
 		{
 			checkPoint = checkPoint.GetComponent<Checkpoint>().NextCheckpoint;
-			calculateDistAndDirectorVectorToNextCheckpoint();
+			calculateDistAndDirectorVector(checkPoint);
 		}
 	}
 
@@ -130,7 +159,7 @@ public class EnemisScript : MonoBehaviour {
 					tmp -= 1;
 				}
 			}
-			yield return new WaitForSeconds(1);
+			yield return new WaitForSeconds(0.3f);
 			// 							    ^
 			//						    attak speed
 		}
