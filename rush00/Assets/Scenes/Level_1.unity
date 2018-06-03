@@ -939,8 +939,93 @@ Prefab:
       propertyPath: checkPoint
       value: 
       objectReference: {fileID: 2058895995}
+    - target: {fileID: 1461149268779216, guid: da040c16b101a432aac400a2c4d43471, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: da040c16b101a432aac400a2c4d43471, type: 2}
+  m_IsPrefabParent: 0
+--- !u!1001 &1242728458
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 114535864911505572, guid: 342f0d187b85e44e4931557a32620b3e,
+        type: 2}
+      propertyPath: weapons.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4280450896359670, guid: 342f0d187b85e44e4931557a32620b3e, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4280450896359670, guid: 342f0d187b85e44e4931557a32620b3e, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -0.68
+      objectReference: {fileID: 0}
+    - target: {fileID: 4280450896359670, guid: 342f0d187b85e44e4931557a32620b3e, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4280450896359670, guid: 342f0d187b85e44e4931557a32620b3e, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4280450896359670, guid: 342f0d187b85e44e4931557a32620b3e, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4280450896359670, guid: 342f0d187b85e44e4931557a32620b3e, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4280450896359670, guid: 342f0d187b85e44e4931557a32620b3e, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4280450896359670, guid: 342f0d187b85e44e4931557a32620b3e, type: 2}
+      propertyPath: m_RootOrder
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 114535864911505572, guid: 342f0d187b85e44e4931557a32620b3e,
+        type: 2}
+      propertyPath: weapons.Array.data[1]
+      value: 
+      objectReference: {fileID: 114529834895484212, guid: 81f11b01d9fe440a49e2e4c149883ae1,
+        type: 2}
+    - target: {fileID: 114535864911505572, guid: 342f0d187b85e44e4931557a32620b3e,
+        type: 2}
+      propertyPath: weapons.Array.data[2]
+      value: 
+      objectReference: {fileID: 114529834895484212, guid: 81f11b01d9fe440a49e2e4c149883ae1,
+        type: 2}
+    - target: {fileID: 114535864911505572, guid: 342f0d187b85e44e4931557a32620b3e,
+        type: 2}
+      propertyPath: weapons.Array.data[3]
+      value: 
+      objectReference: {fileID: 114529834895484212, guid: 81f11b01d9fe440a49e2e4c149883ae1,
+        type: 2}
+    - target: {fileID: 114535864911505572, guid: 342f0d187b85e44e4931557a32620b3e,
+        type: 2}
+      propertyPath: weapons.Array.data[4]
+      value: 
+      objectReference: {fileID: 114529834895484212, guid: 81f11b01d9fe440a49e2e4c149883ae1,
+        type: 2}
+    - target: {fileID: 114535864911505572, guid: 342f0d187b85e44e4931557a32620b3e,
+        type: 2}
+      propertyPath: weapons.Array.data[0]
+      value: 
+      objectReference: {fileID: 114529834895484212, guid: 81f11b01d9fe440a49e2e4c149883ae1,
+        type: 2}
+    - target: {fileID: 1560883232362564, guid: 342f0d187b85e44e4931557a32620b3e, type: 2}
+      propertyPath: m_Name
+      value: WeaponSpawnerDebug
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 342f0d187b85e44e4931557a32620b3e, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1260465003
 GameObject:
@@ -1293,6 +1378,10 @@ Prefab:
       propertyPath: checkPoint
       value: 
       objectReference: {fileID: 181517579}
+    - target: {fileID: 1461149268779216, guid: da040c16b101a432aac400a2c4d43471, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: da040c16b101a432aac400a2c4d43471, type: 2}
   m_IsPrefabParent: 0
@@ -1364,6 +1453,10 @@ Prefab:
       propertyPath: checkPoint
       value: 
       objectReference: {fileID: 1768329739}
+    - target: {fileID: 1461149268779216, guid: da040c16b101a432aac400a2c4d43471, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: da040c16b101a432aac400a2c4d43471, type: 2}
   m_IsPrefabParent: 0

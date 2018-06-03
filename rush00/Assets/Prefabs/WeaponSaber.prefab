@@ -79,9 +79,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attachBody: {fileID: 21300000, guid: 6a80894c63238427280b822e403bcc63, type: 3}
-  bullet: {fileID: 0}
+  bullet: {fileID: 1117160648882706, guid: 50256f81773f042cd9aadc1fda9f8f33, type: 2}
   shotWeapon: 0
-  weaponCharger: 0
+  weaponCharger: 1
   label: EnnemisBullet
   weaponName: Saber
 --- !u!212 &212124821436425828

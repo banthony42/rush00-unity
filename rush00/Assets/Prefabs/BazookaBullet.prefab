@@ -100,8 +100,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
-  TimeUntilEveryFrame: 0
-  NumberOfFrameMAX: 0
+  TimeUntilEveryFrame: 0.2
+  NumberOfFrameMAX: 80
   vectorDirector: {x: 0, y: 0, z: 0}
   label: 
 --- !u!212 &212393200828606596

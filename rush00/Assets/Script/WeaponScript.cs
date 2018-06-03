@@ -24,9 +24,10 @@ public class WeaponScript : MonoBehaviour {
 			deltaX = (direction.x - transform.position.x);
 			deltaY = (direction.y - transform.position.y);
 			delta = Mathf.Sqrt((deltaX * deltaX) + (deltaY * deltaY));
-			Vector3 vectorDirector = new Vector3(deltaX / delta, deltaY / delta, 0.0f);
-			Vector3 vecTmp = new Vector3(transform.position.x + (vectorDirector.x), transform.position.y + (vectorDirector.y), 0);
+			Vector2 vectorDirector = new Vector2(deltaX / delta, deltaY / delta);
+			Vector2 vecTmp = new Vector2(transform.position.x + (vectorDirector.x), transform.position.y + (vectorDirector.y));
 			newBullet = Instantiate(bullet, vecTmp, transform.rotation);
+            newBullet.transform.Rotate(0f, 0f, 90f, Space.Self);
 			newBullet.GetComponent<Bullet>().vectorDirector = vectorDirector;
 			newBullet.GetComponent<Bullet>().label = label;
 		}
