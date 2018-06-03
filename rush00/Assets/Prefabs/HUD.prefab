@@ -38,6 +38,7 @@ GameObject:
   - component: {fileID: 224360991591250700}
   - component: {fileID: 222397355057832126}
   - component: {fileID: 114027001208111760}
+  - component: {fileID: 114607447173139762}
   m_Layer: 5
   m_Name: weaponName
   m_TagString: Untagged
@@ -55,6 +56,7 @@ GameObject:
   - component: {fileID: 224622203710200326}
   - component: {fileID: 222334309946509570}
   - component: {fileID: 114568808960967362}
+  - component: {fileID: 114362787320513866}
   m_Layer: 5
   m_Name: munition
   m_TagString: Untagged
@@ -88,13 +90,26 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 3
     m_MaxSize: 40
-    m_Alignment: 4
+    m_Alignment: 5
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: No Weapon
+--- !u!114 &114362787320513866
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1783127999403552}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e2b94163a2ba45e7b090a649e721fc7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  field: munition
+  player: {fileID: 0}
 --- !u!114 &114568808960967362
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -128,6 +143,19 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: '-'
+--- !u!114 &114607447173139762
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1058057574718834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e2b94163a2ba45e7b090a649e721fc7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  field: weaponName
+  player: {fileID: 0}
 --- !u!114 &114890569673627694
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -187,8 +215,8 @@ RectTransform:
   m_Father: {fileID: 224756765142594946}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.643454, y: 0.63054556}
-  m_AnchorMax: {x: 0.9836856, y: 1.1305455}
+  m_AnchorMin: {x: 0.62683046, y: 0.22955234}
+  m_AnchorMax: {x: 1.1140739, y: 1.1421453}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -205,8 +233,8 @@ RectTransform:
   m_Father: {fileID: 224360991591250700}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.292567, y: -1.15962}
-  m_AnchorMax: {x: 0.7042899, y: 0.17682791}
+  m_AnchorMin: {x: 0.292567, y: -0.7583558}
+  m_AnchorMax: {x: 0.7042899, y: 0.57809216}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -224,8 +252,8 @@ RectTransform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 0.2}
+  m_AnchorMin: {x: -0.17363304, y: 0.047663838}
+  m_AnchorMax: {x: 0.8672218, y: 0.25220332}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
