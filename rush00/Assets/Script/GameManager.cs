@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour {
 
 	public List<GameObject>	EnnemisList = new List<GameObject>();
 	public GameObject		Player;
+    public GameObject       EndGameUi;
 
     private bool gameOVer = false;
 
@@ -40,12 +41,14 @@ public class GameManager : MonoBehaviour {
         {
             Debug.Log("Win!");
             endGame = true;
+            EndGameUi.SetActive(true);
         }
         if (Player == null && !endGame)
         {
             Debug.Log("Loose!");
             endGame = true;
             gameOVer = true;
+            EndGameUi.SetActive(true);
         }
 	}
 
