@@ -81,7 +81,6 @@ public class EnemisScript : MonoBehaviour {
 		{
 			if (hasTarget == true)
 			{
-				Debug.Log("fire !");
 				int tmp = Random.Range(1, 4);
 				while (tmp > 0)
 				{
@@ -105,5 +104,6 @@ public class EnemisScript : MonoBehaviour {
 			yield return new WaitForSeconds(4);
 		}
 	}
+
 
 }

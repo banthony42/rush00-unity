@@ -125,6 +125,15 @@ public class PlayerScript : MonoBehaviour {
             dropWeapon();
 
 		if (Input.GetMouseButton(0) && hasWeapon)
-		currentAmo.GetComponent<WeaponScript>().Fire(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+			StartCoroutine(Fire());
 	}
+
+	IEnumerator Fire()
+	{
+		currentAmo.GetComponent<WeaponScript>().Fire(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+		player.tag = "PlayerFire";
+		yield return new WaitForSeconds(0.3f);
+		player.tag = "Player";
+	}
+
 }
