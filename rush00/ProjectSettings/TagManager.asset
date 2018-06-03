@@ -10,6 +10,13 @@ TagManager:
   - EnnemisBullet
   - PlayerBullet
   - PlayerFire
+  - salle1
+  - salle2
+  - salle3
+  - salle4
+  - salle5
+  - salle6
+  - porte
   layers:
   - Default
   - TransparentFX
