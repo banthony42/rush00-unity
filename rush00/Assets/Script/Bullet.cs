@@ -8,7 +8,6 @@ public class Bullet : MonoBehaviour {
 	public float	TimeUntilEveryFrame;
 	public int		NumberOfFrameMAX;
 	public Vector3	vectorDirector;
-	public float	dammage;
 	public string	label;
 
 	void Start ()
