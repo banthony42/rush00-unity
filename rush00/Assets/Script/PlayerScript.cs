@@ -19,6 +19,14 @@ public class PlayerScript : MonoBehaviour {
 	private bool moving = false;
     private bool hasWeapon = false;
 
+    public bool HasWeapon
+    {
+        get
+        {
+            return hasWeapon;
+        }
+    }
+
     void Start()
     {
 

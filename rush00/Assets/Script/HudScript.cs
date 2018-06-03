@@ -26,14 +26,14 @@ public class HudScript : MonoBehaviour {
         {
             if (currentWeapon.weaponCharger > 0)
                 weaponNameText.text = currentWeapon.weaponName;
-            else
+            if (player.HasWeapon == false)
                 weaponNameText.text = "No Weapon";
         }
         if (field == "munition")
         {
             if (currentWeapon.weaponCharger > 0)
                 munitionText.text = currentWeapon.weaponCharger.ToString();
-            else
+            if (currentWeapon.weaponCharger <= 0 || player.HasWeapon == false)
                 munitionText.text = "-";
         }		
 	}
