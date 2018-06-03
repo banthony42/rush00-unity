@@ -20,6 +20,7 @@ public class EnemisScript : MonoBehaviour {
 	private float				previousDist;
 	private Vector3				vectorDirector;
     private AudioSource myAudioSource;
+    public AudioClip deathSound;
 
 	public GameObject			currentRoom;
 
@@ -109,6 +110,7 @@ public class EnemisScript : MonoBehaviour {
 
 	private void OnDestroy()
 	{
+        myAudioSource.PlayOneShot(deathSound);
         gameManager.removeEnnemis(gameObject);
 	}
 
