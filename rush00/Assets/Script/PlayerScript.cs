@@ -70,6 +70,8 @@ public class PlayerScript : MonoBehaviour {
 
     void pickUp()
     {
+        if (hasWeapon)
+            return ;
         RaycastHit2D hit;
         Vector2 point = player.transform.position;
         hit = Physics2D.Raycast(point, Vector2.up, 0, weaponMask);
@@ -142,6 +144,7 @@ public class PlayerScript : MonoBehaviour {
 	{
         allowFire = false;
 		currentAmo.GetComponent<WeaponScript>().Fire(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+        pickUpWSpawner.weapons[pickUpWSpawner.Index].weaponCharger = currentAmo.GetComponent<WeaponScript>().weaponCharger; // MaJ charger
         if (currentAmo.GetComponent<WeaponScript>().weaponCharger > 0)
             myAudioSource.PlayOneShot(currentAmo.GetComponent<WeaponScript>().WeaponSound);
         else

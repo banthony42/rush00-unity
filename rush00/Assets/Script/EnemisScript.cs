@@ -19,6 +19,7 @@ public class EnemisScript : MonoBehaviour {
 	private float				currentDist;
 	private float				previousDist;
 	private Vector3				vectorDirector;
+    private AudioSource myAudioSource;
 
 	public GameObject			currentRoom;
 
@@ -35,6 +36,7 @@ public class EnemisScript : MonoBehaviour {
 		StartCoroutine(ResetState());
 		calculateDistAndDirectorVector(checkPoint);
 		transform.GetChild(0).GetChild(3).GetComponent<Animator>().SetInteger("Status", 1);
+        myAudioSource = GetComponent<AudioSource>();
 	}
 
 	void Update()
@@ -152,6 +154,7 @@ public class EnemisScript : MonoBehaviour {
 				{
                     if (player)
                     {
+                        myAudioSource.PlayOneShot(currentAmo.GetComponent<WeaponScript>().WeaponSound);
                         currentAmo.GetComponent<WeaponScript>().Fire(player.transform.position);
                         currentAmo.GetComponent<WeaponScript>().weaponCharger = 1;
                     }
@@ -159,7 +162,7 @@ public class EnemisScript : MonoBehaviour {
 					tmp -= 1;
 				}
 			}
-			yield return new WaitForSeconds(0.3f);
+            yield return new WaitForSeconds(0.3f* currentAmo.GetComponent<WeaponScript>().fireRate);
 			// 							    ^
 			//						    attak speed
 		}
