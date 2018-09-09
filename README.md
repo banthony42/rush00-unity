@@ -4,4 +4,4 @@ Note finale : 113/100
 
 Le but était d'utiliser les notions d'Unity 2D apprise lors de la première semaine de formation, pour
 implémenter un Hot Line Miami.
-Projet réalisé dans le cadre d'un rush en 48h
+Projet réalisé dans le cadre d'un rush en 48h, par conséquent un bon nombre de bugs n'ont pas été résolus.
